@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+.container {
+  @apply mt-5 max-w-6xl mx-auto space-y-4 text-center;
+}
+.products-cart {
+  @apply flex gap-4;
+}
+.cart-container {
+  @apply border p-4;
+}

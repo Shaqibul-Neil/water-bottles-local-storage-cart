@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+.singleBottle {
+  @apply border p-5 space-y-2;
+}
+.imgContainer {
+  @apply w-56 mx-auto;
+}
+.btn {
+  @apply bg-amber-600 px-3 py-2 rounded-2xl;
+}

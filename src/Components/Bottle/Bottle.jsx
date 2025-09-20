@@ -6,10 +6,14 @@ const Bottle = ({ bottle, handleAddCart }) => {
       <div className="imgContainer">
         <img src={img} alt="" />
       </div>
-      <h3 className="text-2xl">Name: {name}</h3>
-      <p className="text-xl">{stock} Remaining</p>
-      <p>Shipping: ${shipping}</p>
-      <p>Price: ${price}</p>
+      <h3 className="text-2xl">{name}</h3>
+      <div className="flex justify-between items-center px-8 py-5">
+        <div className="text-left space-y-2">
+          <p>Shipping: ${shipping}</p>
+          <p className="text-xl">Price: ${price}</p>
+        </div>
+        <button className="badge">Only {stock} Remaining</button>
+      </div>
       <button className="btn" onClick={() => handleAddCart(bottle)}>
         Buy Now
       </button>

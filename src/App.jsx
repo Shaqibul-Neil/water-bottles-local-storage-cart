@@ -1,6 +1,7 @@
 import { Suspense, useState } from "react";
 import "./App.css";
 import Bottles from "./Components/Bottles/Bottles";
+import Cart from "./Components/Cart/Cart";
 // import { add, diff, mult, divide as divi } from "./Utilities/math";
 // ../ ek dhap upore --- ./ current folder
 const bottlesPromise = fetch("../public/bottles.json").then((res) =>
@@ -8,10 +9,12 @@ const bottlesPromise = fetch("../public/bottles.json").then((res) =>
 );
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const [carts, setCarts] = useState([]);
 
   const handleAddCart = (bottle) => {
     console.log("bottles added", bottle);
+    const newCart = [...carts, bottle]; //cart ta hcche state ar bottle hcche new click e je obj ta create hsse
+    setCarts(newCart);
   };
 
   return (
@@ -28,7 +31,11 @@ function App() {
         </div>
         <div className="cart-container">
           <h2 className="text-2xl text-left">My Cart</h2>
-          <div className="cart"></div>
+          <div className="carts">
+            {carts.map((cart) => (
+              <Cart cart={cart} key={cart.id} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

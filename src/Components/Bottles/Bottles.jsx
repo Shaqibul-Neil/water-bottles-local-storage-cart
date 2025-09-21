@@ -1,11 +1,8 @@
-import { use } from "react";
 import Bottle from "../Bottle/Bottle";
 import "./Bottles.css";
 
-const Bottles = ({ bottlesPromise, handleAddCart }) => {
-  //   console.log(bottlesPromise);
-  const bottles = use(bottlesPromise);
-  console.log(bottles);
+const Bottles = ({ bottles, handleAddCart }) => {
+  //console.log(handleAddCart);
   return (
     <div>
       <h2 className="text-2xl text-left">Products</h2>

@@ -5,6 +5,7 @@ import Cart from "./Components/Cart/Cart";
 import {
   addCartToLocalStorage,
   getCartFromLocalStorage,
+  removeCartFromLocalStorage,
 } from "./Utilities/localstorage/localstorage";
 // import { add, diff, mult, divide as divi } from "./Utilities/math";
 // ../ ek dhap upore --- ./ current folder
@@ -46,6 +47,7 @@ function App() {
     console.log(id);
     const remainingCart = carts.filter((cart) => cart.id !== id);
     setCarts(remainingCart);
+    removeCartFromLocalStorage(id);
   };
 
   return (

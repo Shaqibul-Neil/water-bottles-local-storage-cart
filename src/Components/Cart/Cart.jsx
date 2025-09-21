@@ -1,4 +1,4 @@
-const Cart = ({ cart }) => {
+const Cart = ({ cart, handleRemoveCart }) => {
   //   console.log(cart);
   return (
     <div className="cart">
@@ -10,7 +10,12 @@ const Cart = ({ cart }) => {
         </p>
         <p className="font-semibold">Quantity: </p>
       </div>
-      <button className="cursor-pointer">❌</button>
+      <button
+        className="cursor-pointer"
+        onClick={() => handleRemoveCart(cart.id)}
+      >
+        ❌
+      </button>
     </div>
   );
 };

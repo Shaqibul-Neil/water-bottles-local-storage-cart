@@ -31,16 +31,21 @@ function App() {
       }
     }
     setCarts(storedCart);
-    console.log(storedCart);
+    //console.log(storedCart);
   }, [bottles]);
 
   const handleAddCart = (bottle) => {
-    console.log("bottles added", bottle);
+    //console.log("bottles added", bottle);
     const newCart = [...carts, bottle]; //cart ta hcche state ar bottle hcche new click e je obj ta create hsse
     setCarts(newCart);
 
     //save the bottle id in the storage
     addCartToLocalStorage(bottle.id);
+  };
+  const handleRemoveCart = (id) => {
+    console.log(id);
+    const remainingCart = carts.filter((cart) => cart.id !== id);
+    setCarts(remainingCart);
   };
 
   return (
@@ -56,7 +61,11 @@ function App() {
           <h2 className="text-2xl text-left">My Cart</h2>
           <div className="carts">
             {carts.map((cart) => (
-              <Cart cart={cart} key={cart.id} />
+              <Cart
+                cart={cart}
+                key={cart.id}
+                handleRemoveCart={handleRemoveCart}
+              />
             ))}
           </div>
         </div>
